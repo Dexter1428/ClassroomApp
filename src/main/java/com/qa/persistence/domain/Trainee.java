@@ -1,9 +1,13 @@
 package com.qa.persistence.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Trainee {
@@ -12,6 +16,9 @@ public class Trainee {
 	@Id
 	private int traineeId;
 	private String traineeName;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	  private List<Trainee> trainees;
 
 	public Trainee(int traineeId, String traineeName) {
 
